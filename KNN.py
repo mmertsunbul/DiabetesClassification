@@ -89,19 +89,18 @@ print("Recall:",recall_score(y_test,y_pred))
 print("F1:",f1_score(y_test,y_pred))
 
 
+#Confusion matrix'in hesaplanması
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-#Confusion matrix'in hesaplanması
 cm = confusion_matrix(y_test, y_pred)
 # cm = [[TN, FP], [FN, TP]]
 
 #Karmaşıklık matrisi hücre etiketlerinin eklenmesi
 labels = np.array([["TN", "FP"], ["FN", "TP"]])
 annot = np.array([[f"{labels[i, j]}\n{cm[i, j]}" for j in range(2)] for i in range(2)])
-
 #görselleştirme
 plt.figure(figsize=(4, 3))
 sns.heatmap(cm, annot=annot, fmt='', cmap='Blues',
@@ -111,3 +110,5 @@ plt.xlabel('Tahmin')
 plt.ylabel('Gerçek')
 plt.title('KNN Confusion Matrix')
 plt.show()
+
+
