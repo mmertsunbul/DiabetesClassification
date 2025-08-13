@@ -28,7 +28,7 @@ y = df["Outcome"] #bağımlı değişken
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-#Eğitim ve test setini ayırma
+#Eğitim ve test verisini ayırma
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.33, random_state=42, stratify=y)
 
 #SMOTE tekniğinin uygulanması 
@@ -64,7 +64,7 @@ print("Recall   :", recall_score(y_test, y_pred_lr))
 print("F1 Score :", f1_score(y_test, y_pred_lr))
 
 
-#Confusion matrix hesaplama
+#Karmaşıklık matrisi hesaplama
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
